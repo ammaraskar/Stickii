@@ -18,7 +18,7 @@ public class StickyBlockListener extends BlockListener {
 	
 	public StickyPlugin plugin;
 	
-	public void StickyPluginBlockListener(StickyPlugin instance) {
+	public StickyBlockListener(StickyPlugin instance) {
 		plugin = instance;
 	}
 	
@@ -29,7 +29,7 @@ public class StickyBlockListener extends BlockListener {
 		Player player = event.getPlayer();
 		
 		
-		if (this.instance.stickyUsers.containsKey(player)) {
+		if (this.plugin.stickyUsers.containsKey(player)) {
 		
 			if (material.equals(Material.STICK)) {
 				if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK))

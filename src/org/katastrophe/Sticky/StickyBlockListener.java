@@ -3,6 +3,7 @@ package org.katastrophe.Sticky;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockListener;
 import org.bukkit.event.player.PlayerInteractEvent;
 
@@ -27,10 +28,14 @@ public class StickyBlockListener extends BlockListener {
 		Block block = event.getClickedBlock();
 		Player player = event.getPlayer();
 		
+		
 		if (this.instance.stickyUsers.containsKey(player)) {
 		
 			if (material.equals(Material.STICK)) {
-				block.setTypeId(0);
+				if (event.getAction().equals(Action.RIGHT_CLICK_BLOCK))
+				{
+					block.setTypeId(0);
+				}
 			}
 		
 		}

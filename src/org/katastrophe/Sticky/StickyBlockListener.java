@@ -23,7 +23,7 @@ public class StickyBlockListener extends BlockListener {
 	
 	public void onPlayerInteract(PlayerInteractEvent event) {
 		
-		Material material = event.getMaterial();
+		Material material = event.getPlayer().getItemInHand().getType();
 		Block block = event.getClickedBlock();
 		Player player = event.getPlayer();
 		

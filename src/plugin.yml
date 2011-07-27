@@ -1,0 +1,11 @@
+name: StickyPlugin
+version: 0.1
+main: org.katastrophe.Sticky.StickyPlugin
+authors: [KieraanBreeze]
+description: >
+             Delete any block with your sticky! :D
+commands:
+  sticky:
+    description: Bonk! Block go bye-bye!
+    usage: |
+            /sticky

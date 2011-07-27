@@ -21,8 +21,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class StickyPlugin extends JavaPlugin {
 
 	PluginDescriptionFile info = this.getDescription();
-	private final StickyBlockListener blockListener = new StickyBlockListener(this);
-	public final static HashMap<Player, ArrayList<Block>> stickyUsers = new HashMap();
+	private final StickyPlayerListener blockListener = new StickyPlayerListener(this);
+	public final HashMap<Player, ArrayList<Block>> stickyUsers = new HashMap<Player, ArrayList<Block>>();
 	private final HashMap<Player, Boolean> debugees = new HashMap<Player, Boolean>();
 	
 	
@@ -36,7 +36,7 @@ public class StickyPlugin extends JavaPlugin {
 	public void onEnable() {
 		System.out.println("[StickyPlugin - Enabled!]");
 		
-		getServer().getPluginManager().registerEvent(Event.Type.BLOCK_PLACE, blockListener, Event.Priority.Normal, this);
+		getServer().getPluginManager().registerEvent(Event.Type.PLAYER_INTERACT, blockListener, Event.Priority.Normal, this);
 		
 	}
 	

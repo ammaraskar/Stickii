@@ -21,8 +21,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class StickyPlugin extends JavaPlugin {
 
 	PluginDescriptionFile info = this.getDescription();
-	
-	private final StickyBlockListener blockListener = new StickyBlockListener();
+	private final StickyBlockListener blockListener = new StickyBlockListener(this);
 	public final static HashMap<Player, ArrayList<Block>> stickyUsers = new HashMap();
 	private final HashMap<Player, Boolean> debugees = new HashMap<Player, Boolean>();
 	
@@ -35,24 +34,25 @@ public class StickyPlugin extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		
-		
 		System.out.println("[StickyPlugin - Enabled!]");
 		
 		getServer().getPluginManager().registerEvent(Event.Type.BLOCK_PLACE, blockListener, Event.Priority.Normal, this);
 		
 	}
 	
-	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args, Player player) {
+	@Override
+	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
 		String commandName = cmd.getName().toLowerCase();
+		if(!(sender instanceof Player)) {
+			return false;
+		}
 		if (commandName.equals("sticky") && sender.isOp()) {
 			toggleVision((Player) sender);
 		} else {
-			player.sendMessage("You need to be opped to use this plugin! Sorry!");
+			sender.sendMessage("You need to be an OP to use StickyPlugin!");
 		}
 		
-		
-		return false;
+		return true;
 	}
 	
 	public boolean isDebugging(final Player player) {
@@ -68,16 +68,16 @@ public class StickyPlugin extends JavaPlugin {
 	}
 	
 	public boolean enabled(Player player) {
-		return StickyPlugin.stickyUsers.containsKey(player);
+		return stickyUsers.containsKey(player);
 	}
 
 	public void toggleVision(Player player) {
 		if (enabled(player)) {
-			StickyPlugin.stickyUsers.remove(player);
-			player.sendMessage("StickyPlugin - Disabled!]");
+			this.stickyUsers.remove(player);
+			player.sendMessage("StickyPlugin - Disabled!");
 		} else {
-			StickyPlugin.stickyUsers.put(player, null);
-			player.sendMessage("StickyPlugin - Enabled!]");
+			this.stickyUsers.put(player, null);
+			player.sendMessage("StickyPlugin - Enabled!");
 		}
 		
 	}

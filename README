@@ -1,6 +1,37 @@
-Sticky plugin
+Stickii 
+Version 1.2
 
-Work in progress!
+By Kieran Breeze
+kieraanbreeze@gmail.com
 
+--------------
 
-If you use any code from my plugin, please credit me :)
+Delete blocks in Minecraft by right clicking with a stick.
+
+Please report any issues on GitHub or email me (Email at top of ReadMe)
+
+--------------
+
+PERMISSIONS:
+
+At the moment, only OP's can use this plugin, I plan on adding permissions support soon. (see TODO)
+
+If you could tell me the best way to go about adding permissions support then please get in touch with
+me via GitHub or my email. (Email at top of ReadMe)
+
+--------------
+
+TODO:
+
+Add permissions support.
+Add customisable range. (config file)
+
+Want a feature added? ask on here or email me to get it added! (Email at top of ReadMe)
+
+--------------
+
+LICENSE:
+
+http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+Stickii by Kieran Breeze is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.

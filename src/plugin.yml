@@ -1,11 +1,11 @@
-name: StickyPlugin
-version: 0.1
-main: org.katastrophe.Sticky.StickyPlugin
+name: Stickii
+version: 1.2
+main: org.katastrophe.Stickii.Stickii
 authors: [KieraanBreeze]
 description: >
-             Delete any block with your sticky! :D
+             Delete any block up to 50 blocks away with a stick.
 commands:
   sticky:
     description: Bonk! Block go bye-bye!
     usage: |
-            /sticky
+            /stickii

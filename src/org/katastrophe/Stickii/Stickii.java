@@ -9,7 +9,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
-import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /*
@@ -21,7 +20,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Stickii extends JavaPlugin {
 
-	PluginDescriptionFile info = this.getDescription();
 	private final StickiiPlayerListener blockListener = new StickiiPlayerListener(this);
 	public final HashMap<Player, ArrayList<Block>> stickiiUsers = new HashMap<Player, ArrayList<Block>>();
 	private final HashMap<Player, Boolean> debugees = new HashMap<Player, Boolean>();
@@ -29,13 +27,13 @@ public class Stickii extends JavaPlugin {
 	
 	@Override
 	public void onDisable() {
-		System.out.println("[StickyPlugin] - Disabled!");
+		System.out.println("[Stickii] - Disabled!");
 		
 	}
 
 	@Override
 	public void onEnable() {
-		System.out.println("[StickyPlugin] - Enabled!");
+		System.out.println("[Stickii] - Enabled!");
 		
 		getServer().getPluginManager().registerEvent(Event.Type.PLAYER_INTERACT, blockListener, Event.Priority.Normal, this);
 		
@@ -48,12 +46,12 @@ public class Stickii extends JavaPlugin {
 			System.out.println("Only people in-game can use Stickii!");
 			return false;
 		}
-		if (sender.isOp() && commandName.equals("stickii")) {
+		if (commandName.equals("stickii") && sender.isOp()) {
 			toggleVision((Player) sender);
 		} else {
 			sender.sendMessage(ChatColor.AQUA + "You need to be OP to use Stickii. Sorry!");
 		}
-		
+	
 		return true;
 	}
 	

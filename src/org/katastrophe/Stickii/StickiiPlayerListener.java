@@ -1,5 +1,6 @@
 package org.katastrophe.Stickii;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -35,7 +36,12 @@ public class StickiiPlayerListener extends PlayerListener {
 				
 				if (event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK))
 				{
+					if (block.isLiquid()) {
+						player.sendMessage(ChatColor.AQUA + "You cannot destroy liquids with Stickii yet! Sorry!");
+					} else {
 					block.setTypeId(0);
+					}
+					
 				} else {
 					//do nothing :P
 				}

@@ -1,11 +1,11 @@
 name: Stickii
-version: 1.2
+version: 2.0
 main: org.katastrophe.Stickii.Stickii
 authors: [KieraanBreeze]
 description: >
-             Delete any block up to 50 blocks away with a stick.
+             Delete any block up to 50 blocks away with a stick!
 commands:
-  sticky:
+  stickii:
     description: Bonk! Block go bye-bye!
     usage: |
             /stickii

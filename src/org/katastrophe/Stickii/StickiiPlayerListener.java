@@ -1,12 +1,14 @@
 package org.katastrophe.Stickii;
 
-import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerListener;
+import org.bukkit.inventory.ItemStack;
 
 /*
  * Stickii
@@ -29,6 +31,10 @@ public class StickiiPlayerListener extends PlayerListener {
 		Material material = event.getPlayer().getItemInHand().getType();
 		Player player = event.getPlayer();
 		Block block = player.getTargetBlock(null, 50);
+		Location location = block.getLocation();
+		Integer blockid = block.getTypeId();
+		World world = location.getWorld();
+		ItemStack item = new ItemStack(blockid, 1);
 		
 		if (this.plugin.stickiiUsers.containsKey(player)) {
 		
@@ -36,15 +42,14 @@ public class StickiiPlayerListener extends PlayerListener {
 				
 				if (event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK))
 				{
-					if (block.isLiquid()) {
-						player.sendMessage(ChatColor.AQUA + "You cannot destroy liquids with Stickii yet! Sorry!");
-					} else {
 					block.setTypeId(0);
-					}
-					
-				} else {
-					//do nothing :P
+				} 
+				else if (event.getAction().equals(Action.LEFT_CLICK_AIR) || event.getAction().equals(Action.LEFT_CLICK_BLOCK)) 
+				{
+					world.dropItem(location, item);
+					block.setTypeId(0);
 				}
+				
 				
 			} else {
 				// do nothing

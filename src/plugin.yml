@@ -1,5 +1,5 @@
 name: Stickii
-version: 1.2.2
+version: 0.2
 main: org.katastrophe.Stickii.Stickii
 authors: [KieraanBreeze]
 description: >
@@ -9,3 +9,4 @@ commands:
     description: Bonk! Block go bye-bye!
     usage: |
             /stickii
+    permission: stickii.use

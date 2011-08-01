@@ -1,5 +1,5 @@
 Stickii 
-Version 1.2.2
+Version 0.2
 
 By Kieran Breeze
 kieraanbreeze@gmail.com
@@ -23,8 +23,8 @@ me via GitHub or my email. (Email at top of ReadMe)
 
 TODO:
 
-Add permissions support.
 Add customisable range. (config file)
+Add "No block found" error message.
 
 Want a feature added? ask on here or email me to get it added! (Email at top of ReadMe)
 
@@ -35,3 +35,22 @@ LICENSE:
 http://creativecommons.org/licenses/by-nc-sa/3.0/
 
 Stickii by Kieran Breeze is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+
+--------------
+
+Changelog:
+
+
+Version 0.2 
+- Added permissions support.
+- Added left click (drops items)
+
+Version 0.1 
+- First Realease.
+
+--------------
+
+Thanks to:
+
+mbaxter: For bits of help when I durped.
+Banana937: For helping me with testing.
